@@ -1,10 +1,8 @@
-# interlogger
+# useGeneratorQueue hook
 
-[![NPM](https://img.shields.io/npm/v/interlogger)](https://github.com/jduarter/interlogger)
-[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fjduarter%2Finterlogger%2Fmaster%2Fpackage.json)](https://github.com/jduarter/interlogger)
-<a href="https://codeclimate.com/github/jduarter/interlogger/maintainability"><img src="https://api.codeclimate.com/v1/badges/b2d14de2ab2bfc28a5f6/maintainability" /></a>
-
-interlogger: the definitive Open Source solution for proper logging regardless of your environment.
+[![NPM](https://img.shields.io/npm/v/react-use-generator-queue)](https://github.com/megah4x0r/react-use-generator-queue)
+[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmegah4x0r%2Freact-use-generator-queue%2Fmaster%2Fpackage.json)](https://github.com/megah4x0r/react-use-generator-queue)
+<a href="https://codeclimate.com/github/megah4x0r/react-use-generator-queue/maintainability"><img src="https://api.codeclimate.com/v1/badges/b2d14de2ab2bfc28a5f6/maintainability" /></a>
 
 Warning: This project is on pre-release stage. Using it in production might not be a good idea unless you're an adventurer one.
 
@@ -15,47 +13,10 @@ Warning: This project is on pre-release stage. Using it in production might not 
 Install:
 
 ```
-npm install --save interlogger
+npm install --save react-use-generator-queue
 ```
 
 ### Implementation example
-
-```
-import { addPlugin as flipperPlugin } from 'react-native-flipper';
-
-import {
-  initMainScopeLogger,
-  FlipperConsumer,
-  ConsoleConsumer,
-} from 'interlogger';
-
-import type { Consumer } from 'interlogger';
-
-const LOG_CONSUMERS: Consumer[] = [
-  ConsoleConsumer,
-  FlipperConsumer({
-    flipperPlugin,
-  }),
-];
-
-export const initLoggers = (): void => {
-  initMainScopeLogger({
-    consumers: LOG_CONSUMERS,
-    rules: ({ doesNotMatch }) => ({
-      all: [
-          /* Log if:
-           *   consumer.name != 'Flipper' &&
-           *   scope != 'useGeneratorQueue'
-           */
-        doesNotMatch('$.consumer.name', 'Flipper'),
-        doesNotMatch('$.scope', 'useGeneratorQueue'),
-      ],
-    }),
-  });
-};
-
-export { loggerForScope } from 'interlogger';
-```
 
 ## License.
 
